@@ -1,45 +1,26 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true, // Enables strict mode for React
-  swcMinify: true, // Uses SWC for faster builds and minification
+  reactStrictMode: true,
+  swcMinify: true,
   experimental: {
-    appDir: true, // Enables the new app directory structure if you're using it
-    turbo: true, // Optimizes with TurboPack for better dev performance
+    appDir: true,
+    turbo: true,
   },
   images: {
-    domains: ['example.com'], // Add your image host domains for Next.js Image Optimization
-    formats: ['image/avif', 'image/webp'], // Enable modern image formats
-  },
-  webpack: (config) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '@': path.resolve(__dirname, 'src'), // Maintain your `@` alias for imports
-    };
-    return config;
-  },
-  env: {
-    NEXT_PUBLIC_API_URL:
-      process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000', // Example environment variable
+    domains: [],
+    formats: ['image/avif', 'image/webp'],
   },
   eslint: {
-    ignoreDuringBuilds: true, // Prevent build failures due to ESLint errors
+    ignoreDuringBuilds: false,
   },
   typescript: {
-    ignoreBuildErrors: false, // Enforces stricter TypeScript during builds
+    ignoreBuildErrors: false,
   },
-  i18n: {
-    locales: ['en'], // Default locale setup; expand if needed
-    defaultLocale: 'en',
+  compress: true,
+  poweredByHeader: false,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
   },
-  headers: async () => [
-    {
-      source: '/:path*',
-      headers: [
-        { key: 'X-Frame-Options', value: 'DENY' },
-        { key: 'X-Content-Type-Options', value: 'nosniff' },
-      ],
-    },
-  ],
 };
 
 export default nextConfig;
