@@ -1,20 +1,25 @@
 import type { Config } from "tailwindcss";
 
 const config = {
-  darkMode: ["class"],
+  darkMode: ["class"], // Supports class-based dark mode switching
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
   ],
-  prefix: "",
+  prefix: "", // No prefix by default; ensure no conflicts with external libraries
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: {
+        DEFAULT: "2rem",
+        sm: "1rem", // Adjust padding for smaller screens
+        lg: "4rem", // Larger padding for wider screens
+        xl: "6rem", // Extra large padding for very wide screens
+      },
       screens: {
-        "2xl": "1400px",
+        "2xl": "1400px", // Limit container width for ultra-wide screens
       },
     },
     extend: {
@@ -57,6 +62,8 @@ const config = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        xl: "1.5rem", // Added for larger elements
+        full: "9999px", // Fully rounded corners
       },
       keyframes: {
         "accordion-down": {
@@ -67,14 +74,23 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        fadeIn: {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        fadeIn: "fadeIn 0.3s ease-in",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"), // Supports animations
+    require("@tailwindcss/forms"), // Enhances default form styling
+    require("@tailwindcss/typography"), // Adds utilities for rich text
+  ],
 } satisfies Config;
 
 export default config;

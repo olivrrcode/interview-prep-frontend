@@ -1,32 +1,35 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
+    "target": "esnext", // Explicitly set the target for modern ES features
+    "lib": ["dom", "dom.iterable", "esnext"], // Includes DOM and ESNext APIs
+    "allowJs": true, // Allows JavaScript files in the project
+    "skipLibCheck": true, // Skips type checking of declaration files for performance
+    "strict": true, // Enables all strict type-checking options
+    "noEmit": true, // Prevents emitting compiled JavaScript
+    "esModuleInterop": true, // Supports default imports from CommonJS modules
+    "module": "esnext", // Uses modern ES module syntax
+    "moduleResolution": "node", // Resolves modules in a Node.js environment
+    "resolveJsonModule": true, // Allows importing JSON files
+    "isolatedModules": true, // Ensures each file can be compiled in isolation
+    "jsx": "preserve", // Keeps JSX for Next.js to handle
+    "incremental": true, // Speeds up subsequent compilations
+    "forceConsistentCasingInFileNames": true, // Prevents issues with file casing
+    "baseUrl": ".", // Sets the base directory for resolving paths
+    "paths": {
+      "@/*": ["./src/*"] // Simplifies imports with aliasing
+    },
     "plugins": [
       {
-        "name": "next"
+        "name": "next" // Integrates Next.js-specific IntelliSense
       }
-    ],
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    ]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts",
-    "next.config.mjs"
+    ".next/types/**/*.ts", // Next.js type definitions
+    "next.config.mjs" // Include Next.js configuration if using TypeScript
   ],
   "exclude": ["node_modules"]
 }
