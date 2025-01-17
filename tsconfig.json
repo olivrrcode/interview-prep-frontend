@@ -29,7 +29,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts", // Next.js type definitions
-    "next.config.mjs" // Include Next.js configuration if using TypeScript
+    "next.config.mjs", // Include Next.js configuration if using TypeScript
+    "tailwind.config.js"
   ],
   "exclude": ["node_modules"]
 }
