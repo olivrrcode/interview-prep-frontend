@@ -7,7 +7,7 @@ import Providers from './providers';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Interview Preparation App',
+  title: 'Interview Prep App',
   description: 'Created by Oliver Atherton',
 };
 
