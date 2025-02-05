@@ -19,7 +19,7 @@ const nextConfig = {
       fs: false,
       path: false,
       os: false,
-      crypto: false, // Monaco sometimes triggers crypto imports
+      crypto: false,
     };
     return config;
   },
