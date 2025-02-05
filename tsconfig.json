@@ -8,7 +8,7 @@
     "noEmit": true, // Prevents emitting compiled JavaScript
     "esModuleInterop": true, // Supports default imports from CommonJS modules
     "module": "esnext", // Uses modern ES module syntax
-    "moduleResolution": "node", // Resolves modules in a Node.js environment
+    "moduleResolution": "bundler", // Resolves modules in a Node.js environment
     "resolveJsonModule": true, // Allows importing JSON files
     "isolatedModules": true, // Ensures each file can be compiled in isolation
     "jsx": "preserve", // Keeps JSX for Next.js to handle
@@ -28,9 +28,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts", // Next.js type definitions
-    "next.config.mjs", // Include Next.js configuration if using TypeScript
-    "tailwind.config.js"
+    ".next/types/**/*.ts" // Next.js type definitions
   ],
   "exclude": ["node_modules"]
 }

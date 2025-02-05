@@ -1,6 +1,6 @@
 'use client';
 
-import { ThemeProvider } from '@/components/theme-provider';
+import CodeEditor from '@/components/code-editor';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 export default function Home() {
@@ -8,12 +8,7 @@ export default function Home() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider
-        attribute="class"
-        defaultTheme="light"
-        enableSystem
-        disableTransitionOnChange
-      ></ThemeProvider>
+      <CodeEditor />
     </QueryClientProvider>
   );
 }
