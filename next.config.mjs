@@ -17,10 +17,17 @@ const nextConfig = {
     config.resolve.fallback = {
       ...config.resolve.fallback,
       fs: false,
-      path: false,
-      os: false,
-      crypto: false,
+      path: require.resolve('path-browserify'),
+      os: require.resolve('os-browserify/browser'),
+      crypto: require.resolve('crypto-browserify'),
     };
+
+    config.output.globalObject = 'self';
+    config.module.rules.push({
+      test: /monaco-editor.*\.worker\.js$/,
+      use: { loader: 'worker-loader', options: { inline: 'no-fallback' } },
+    });
+
     return config;
   },
 };
